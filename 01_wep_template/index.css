@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+body,
+* {
+    font-family: "open sans";
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.menu-wrapper {
+    position: fixed;
+    width: fit-content;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 2;
+}
+
+.burger-icon {
+    position: fixed;
+    left: 1rem;
+    top: 1rem;
+    cursor: pointer;
+    font-size: 2rem;
+    color: black;
+    z-index: 3;
+    transition: color 0.3s ease-in-out;
+    
+}
+
+.menu-wrapper:has(.sidebar:hover) .burger-icon, .burger-icon:hover {
+    color: white;
+}
+
+.sidebar {
+    position: relative;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    min-width: 15rem;
+    background-color: black;
+    color: white;
+    padding: 4rem 1rem;
+    box-sizing: border-box;
+    transition: left 0.3s ease-in-out;
+
+}
+
+.burger-icon:hover + .sidebar, .sidebar:hover {
+    left: 0;
+    box-shadow: 0,0,10px 1px black;
+}
+
+.sidebar a {
+    font-size: 1.5rem;
+    display: block;
+    text-decoration: none;
+    color: white;
+    margin: 1rem 0;
+    opacity: 0.5;
+    transition: opacity 0.15s ease-in-out;
+        transform: 0.15s ease-in-out;
+
+}
+
+.sidebar a:hover {
+    opacity: 1;
+    transform: translateX(0.5rem);
+    filter: drop-shadow(0,0,10px white);
+}
+
+.page {
+    width: 100vw;
+    height: 100vh;
+    border: 1px solid lawngreen;
+    overflow: hidden;
+    /* grid layout */
+    display: grid;
+    place-items: center;
+    /* position fixed shows class enter */
+    position: fixed;
+    left: -100vw;
+    transition: ease-in-out;
+}
+
+.show {
+    left: 0;
+}
+
+/*all div's inside pages are here*/
+.page div {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+
+}
+
+h1 {
+    font-weight: 300;
+    font-size: 3rem;
+
+}
+
+#page2 {
+    grid-template-rows: 1fr, 3fr;
+
+}
+
+#page2 .top {
+    background-color: aqua;
+
+}
+
+#page2 .bottom {
+    background-color: green;
+    background-image: url(./assets/fjord.jpeg.jpg);
+    background-size: cover;
+}
+
+#page3 {
+    grid-template-columns: 1fr 1fr;
+}
+
+#page3 .left {
+    grid-template-rows: 1fr 3fr;
+}
+
+#page3 .left .bottom {
+    background-color: hotpink;
+}
+
+#page3 .right .box {
+    background-color: lightseagreen;
+    height: 50%;
+    width: 50%;
+    display: grid;
+    grid-template-rows: 1fr 6fr;
+
+}
+
+#page3 .right .box .bottom {
+    background-image: url(./assets/fjord.jpeg.jpg);
+
+}
+
+#page4{
+    grid-template-columns: repeat(4,1fr);
+}
+
+#page4 .col:nth-child(1){
+    background-color: brown;
+
+}
+#page4 .col:nth-child(2){
+    background-color: orange;
+
+}
+#page4 .col:nth-child(3){
+    background-color: red;
+
+}
+#page4 .col:nth-child(4){
+    background-color: lightskyblue;
+
+}
