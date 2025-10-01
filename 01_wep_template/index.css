@@ -168,3 +168,19 @@ h1 {
     background-color: lightskyblue;
 
 }
+
+#page5{
+    grid-template-columns: 1fr 1fr;
+}
+
+#page5.right{
+    grid-template-rows: 1fr 2fr;
+}
+
+#page5.right .top{
+background-color: chocolate;
+}
+
+#page5.right.bottom{
+background-color: cyan;
+}
