@@ -170,6 +170,7 @@ h1 {
 }
 
 #page5{
+    display: grid;
     grid-template-columns: 1fr 1fr;
 }
 
@@ -183,4 +184,25 @@ background-color: chocolate;
 
 #page5.right.bottom{
 background-color: cyan;
+}
+
+#page6{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+#page6.bottom{
+    grid-template-columns:repeat(4,1fr);
+}
+
+#page6.bottom.bottom1{
+    background-color: blueviolet;
+}
+
+#page6.bottom.bottom2{
+    background-color: blue;
+}
+
+#page6.bottom.bottom3{
+    background-color: darkcyan;
 }
