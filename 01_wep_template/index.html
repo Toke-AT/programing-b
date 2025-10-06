@@ -6,16 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web template with p5.js</title>
     <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.min.js"></script>
 </head>
 
 <body>
     <div class="menu-wrapper">
         <div class="burger-icon">≡</div>
         <div class="sidebar">
-            <a href="" id="menu-side1">page1</a>
-            <a href="" id="menu-side2">page2</a>
-            <a href="" id="menu-side3">page3</a>
-            <a href="" id="menu-side4">page4</a>
+            <a id="menu-side1" action="#page1">page1</a>
+            <a id="menu-side2" action="#page2">page2</a>
+            <a id="menu-side3" action="#page3">page3</a>
+            <a id="menu-side4" action="#page4">page4</a>
+            <a id="menu-side5" action="#page5">page5</a>
         </div>
     </div>
     <main>
@@ -59,23 +61,22 @@
             <div class="col"></div>
             <div class="col"></div>
         </div>
-        <div class="page" id="page5">
-            <div class="left"><h1>left</h1></div>
-            <div class="right">
-                <div class="top"><h1>top right</h1></div>
-                <div class="bottom"><h1>bottom right</h1></div>
+
+        <div class="page show" id="page5">
+            <div class="left">
+                <h1>Left</h1>
             </div>
-        </div>
-        <div class="page show" id="page6">
-            <div class="top"><h1>top</h1></div>
-            <div class="bottom">
-                <div class="bottom1"><h1>1</h1></div>
-                <div class="bottom2"><h1>2</h1></div>
-                <div class="bottom3"><h1>3</h1></div>
-                <div class="bottom4"><h1>4</h1></div>
+            <div class="right">
+                <div class="top">
+                    <h1>Top right</h1>
+                </div>
+                <div class="bottom">
+                    <h1>Bottom right</h1>
+                </div>
             </div>
         </div>
     </main>
+    <script src="./index.js"></script>
 </body>
 
 </html>
