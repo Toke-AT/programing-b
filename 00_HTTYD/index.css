@@ -142,10 +142,11 @@ h1 {
 }
 
 .background1{
-    background-image: url('./assets/images\ \(1\).jpg');
+    background-image: url('./assets/poster.jpg');
+    
 }
 .background2{
-    background-image: url('./assets/images.jpg');
+    background-image: url('./assets/images\ \(1\).jpg');
 }
 
 #page1{
@@ -153,21 +154,12 @@ h1 {
 }
 
 #page2 {
-    grid-template-rows: 0.5fr, 5fr;
-
-}
-
-#page2 .top {
-    background-color: aqua;
-
-}
-
-#page2 .bottom {
-    background-color: green;
-    background-image: url(./assets/images\ \(2\).jpg);
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: bottom center;
+    background-color: white;
+    background-image: url('./assets/title.jpg');
+    background-size:contain;
+    background-attachment:fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
 #page3 {
@@ -179,7 +171,13 @@ h1 {
 }
 
 #page3 .left .bottom {
-    background-color: hotpink;
+    background-color: lightsteelblue;
+    border-radius: 12px;
+    border-color: white;
+}
+
+#page3 .left .top {
+    border-radius: 12px;
 }
 
 #page3 .right .box {
@@ -192,8 +190,11 @@ h1 {
 }
 
 #page3 .right .box .bottom {
-    background-image: url(./assets/fjord.jpeg.jpg);
-
+    background-image: url(./assets/images\ \(4\).jpg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 12px;
 }
 
 #page4{
