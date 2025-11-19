@@ -1,6 +1,6 @@
 var currentPage = '#page5'
 var videoButton, theVideo
-var videoPlaying = true
+var videoPlaying=true
 
 //P5 setup() bliver kaldt EN gang før siden vises 
 function setup(){
@@ -11,8 +11,19 @@ function setup(){
 
     //the video
     theVideo = select('#theVideo')
-    //video control
+    //Video control button
     videoButton = select('#videoButton')
+    videoButton.mousePressed(()=>{
+        //console.log('button pressed')
+        if(videoPlaying){
+            theVideo.pause()
+            videoPlaying = false
+        }else{
+            theVideo.play()
+            videoPlaying = true
+        }
+    })
+
         
     //Sæt menu op
     //hent alle sider som array

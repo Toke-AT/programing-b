@@ -190,7 +190,7 @@ h1 {
 }
 
 #page3 .right .box .bottom {
-    background-image: url(./assets/images\ \(4\).jpg);
+    background-image: url('./assets/images\ \(4\).jpg');
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -198,7 +198,7 @@ h1 {
 }
 
 #page4{
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(2,1fr);
 }
 
 #page4 .col:nth-child(1){
@@ -210,23 +210,45 @@ h1 {
     object-position: center;
     width: 100%;
     height: 100%;
-    
 }
+
+#page4 .col:nth-child(1) .bottom #overlay{
+    position:absolute;
+    display:grid;
+    place-items:center;
+}
+
 #page4 .col:nth-child(2){
     background-color: orange;
 
 }
-#page4 .col:nth-child(3){
-    background-color: red;
 
+#page4 .col:nth-child(2) video{
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
 }
-#page4 .col:nth-child(4){
-    background-color: lightskyblue;
 
+#page4 .col:nth-child(2) .bottom #overlay{
+    position:absolute;
+    display:grid;
+    place-items:center;
 }
 
 #page5 {
     grid-template-columns: 1fr 1fr;
+}
+
+#page5 .left {
+    background-image: url('./assets/How_to_Train_Your_Dragon_\(2003_book_cover\).jpg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 12px;
+    background-color: brown;
+    color: rgb(184, 189, 242);
+    
 }
 
 #page5 .right {
@@ -245,21 +267,85 @@ h1 {
     position: relative;
 }
 
-#videoButton{
-    position: absolute;
-    bottom: 1rem;
-    left: 1rem;
-    padding: 0.5rem 1rem 0.5rem 1rem;
-    border-radius: 1rem;
-    background-color: rgba(100, 100, 100, 0.9);
-    color: blueviolet;
-    border: 1px solid lightgray;
-    z-index: 1000;
-    transition: 0.3s ease-in-out all ;
-    cursor: pointer;
+#page5 .right .bottom video{
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
 }
 
-#videoButton:hover{
-    background-color: white;
-    color: black;
+#videoButton{
+    position:absolute;
+    bottom:1rem;
+    left:1rem;
+    padding:0.5rem 1rem 0.5rem 1rem;
+    border-radius:1rem;
+    background-color: rgba(100,100,100,0.9);
+    color:white;
+    border:1px solid lightgray;
+    z-index:1000;
+    transition: .3s ease-in-out all;
+    cursor:grab;
+}
+
+#videoButton :hover{
+    background-color:white;
+    color:black;
+}
+
+#videoButton2{
+    position:absolute;
+    bottom:1rem;
+    left:1rem;
+    padding:0.5rem 1rem 0.5rem 1rem;
+    border-radius:1rem;
+    background-color: rgba(100,100,100,0.9);
+    color:white;
+    border:1px solid lightgray;
+    z-index:1000;
+    transition: .3s ease-in-out all;
+    cursor:grab;
+}
+
+#videoButton2 :hover{
+    background-color:white;
+    color:black;
+}
+
+#videoButton3{
+    position:absolute;
+    bottom:1rem;
+    left:1rem;
+    padding:0.5rem 1rem 0.5rem 1rem;
+    border-radius:1rem;
+    background-color: rgba(100,100,100,0.9);
+    color:white;
+    border:1px solid lightgray;
+    z-index:1000;
+    transition: .3s ease-in-out all;
+    cursor:grab;
+}
+
+#videoButton3 :hover{
+    background-color:white;
+    color:black;
+}
+
+#videoButton4{
+    position:absolute;
+    bottom:1rem;
+    left:1rem;
+    padding:0.5rem 1rem 0.5rem 1rem;
+    border-radius:1rem;
+    background-color: rgba(100,100,100,0.9);
+    color:white;
+    border:1px solid lightgray;
+    z-index:1000;
+    transition: .3s ease-in-out all;
+    cursor:grab;
+}
+
+#videoButton4 :hover{
+    background-color:white;
+    color:black;
 }
