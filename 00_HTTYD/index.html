@@ -13,14 +13,14 @@
     <div class="menu-wrapper">
         <div class="burger-icon">≡</div>
         <div class="sidebar">
-            
+
         </div>
     </div>
     <main>
         <div title="toothless parallax" class="page" id="page1">
-            
+
             <div class="background1 parallax">
-                
+
             </div>
             <div class="background2 parallax">
 
@@ -29,6 +29,34 @@
         <div title="how to train your dragon" class="page" id="page2">
 
             <div class="bottom">
+                <section>
+                    <div class="bg"></div>
+
+                    <select id="select-state" onchange="changeBackground(this)">
+                        <option value="assets/hiccup.jpg">Hiccup</option>
+                        <option value="assets/astrid.jpg">Astrid</option>
+                        <option value="assets/fishlegs.jpg">Fishlegs</option>
+                        <option value="assets/toothless.jpg">Toothless</option>
+                        <option value="assets/snotlout.jpg">Snotlout</option>
+                        <option value="assets/ruffnut.jpg">Ruffnut</option>
+                        <option value="assets/tuffnut.jpg">Tuffnut</option>
+                    </select>
+                </section>
+                <script type="text/javascript">
+                    function changeBackground(getbg) {
+                        let bg = document.querySelector(".bg");
+                        let asset = getbg.value;
+
+                        console.log(asset);
+                        bg.style.background = 'url(' + asset + ')';
+                        bg.style.backgroundSize = "contain";
+                        bg.style.backgroundPosition = "center center";
+                        bg.style.backgroundRepeat = "no-repeat";
+                        bg.style.backgroundAttachment = "fixed";
+
+                    }
+
+                </script>
             </div>
         </div>
 
@@ -43,12 +71,19 @@
                         by dreamworks in 2010 with an amaizing score
                         composed by john powell and is the greatest animated movie i have ever seen.
                     </h3>
-                    
-                    <h3>    
-                        How to Train Your Dragon is a 2010 American animated fantasy film directed by Chris Sanders and Dean DeBlois and written by Sanders, DeBlois and Will Davies, based on the 2003 novel by Cressida Cowell. 
-                        Produced by DreamWorks Animation, the film stars the voices of Jay Baruchel, Gerard Butler, Craig Ferguson, America Ferrera, Jonah Hill, Christopher Mintz-Plasse, T.J. Miller, and Kristen Wiig. 
-                        The story takes place in Berk, a mythical Viking village; Hiccup, an undersized teen outcast and son of the village chieftain, wishing to become a dragon slayer like the other Vikings, injures a rare Night Fury dragon but is unable to bring himself to kill it. 
-                        He instead helps and befriends the dragon, and quickly discovers that things are not exactly as they seem in the conflict between Vikings and dragons.
+
+                    <h3>
+                        How to Train Your Dragon is a 2010 American animated fantasy film directed by Chris Sanders and
+                        Dean DeBlois and written by Sanders, DeBlois and Will Davies, based on the 2003 novel by
+                        Cressida Cowell.
+                        Produced by DreamWorks Animation, the film stars the voices of Jay Baruchel, Gerard Butler,
+                        Craig Ferguson, America Ferrera, Jonah Hill, Christopher Mintz-Plasse, T.J. Miller, and Kristen
+                        Wiig.
+                        The story takes place in Berk, a mythical Viking village; Hiccup, an undersized teen outcast and
+                        son of the village chieftain, wishing to become a dragon slayer like the other Vikings, injures
+                        a rare Night Fury dragon but is unable to bring himself to kill it.
+                        He instead helps and befriends the dragon, and quickly discovers that things are not exactly as
+                        they seem in the conflict between Vikings and dragons.
                     </h3>
                 </div>
             </div>
@@ -66,13 +101,20 @@
 
         <div title="the first two movie trailers" class="page" id="page4">
             <div class="col">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/2AKsAxrhqgM?si=BCia7313-PF4yd7l" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/2AKsAxrhqgM?si=BCia7313-PF4yd7l"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 <button id="videoButton">Pause</button>
                 <h1 id="overlay">HTTYD 1 trailer</h1>
 
             </div>
             <div class="col">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/2BP38770KNo?si=vVwVbFSAtOpvmHdQ&amp;start=7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="560" height="315"
+                    src="https://www.youtube.com/embed/2BP38770KNo?si=vVwVbFSAtOpvmHdQ&amp;start=7"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 <button id="videoButton2">Pause</button>
                 <h1 id="overlay">HTTYD 2 trailer</h1>
             </div>
@@ -81,10 +123,20 @@
         <div title="the finale" class="page" id="page5">
             <div class="left">
                 <h1>The Original book</h1>
-                <h3>The animated film trilogy has been highly acclaimed, with each film nominated for the Academy Award for Best Animated Feature, in addition to the first film's nomination for the Academy Award for Best Original Score.</h3>
-                <h3>How to Train Your Dragon is a series of children's books written by British author Cressida Cowell. The books are set in a fictional Fantasy Viking world, and focus on the experiences of protagonist Hiccup Horrendous Haddock the Third, as he overcomes obstacles on his journey of "becoming a hero, the hard way". The books were published by Hodder Children's Books in the UK and by Little, Brown and Company in the United States. The first book was published in 2003 and the 12th and final one in 2015.
-                By 2015, the series had sold more than seven million copies around the world. The books have subsequently been adapted into a media franchise consisting of three animated feature films, several television series, one live action remake and other media, all produced by DreamWorks Animation.</h3>
-                
+                <h3>The animated film trilogy has been highly acclaimed, with each film nominated for the Academy Award
+                    for Best Animated Feature, in addition to the first film's nomination for the Academy Award for Best
+                    Original Score.</h3>
+                <h3>How to Train Your Dragon is a series of children's books written by British author Cressida Cowell.
+                    The books are set in a fictional Fantasy Viking world, and focus on the experiences of protagonist
+                    Hiccup Horrendous Haddock the Third, as he overcomes obstacles on his journey of "becoming a hero,
+                    the hard way". The books were published by Hodder Children's Books in the UK and by Little, Brown
+                    and Company in the United States. The first book was published in 2003 and the 12th and final one in
+                    2015.
+                    By 2015, the series had sold more than seven million copies around the world. The books have
+                    subsequently been adapted into a media franchise consisting of three animated feature films, several
+                    television series, one live action remake and other media, all produced by DreamWorks Animation.
+                </h3>
+
             </div>
             <div class="right">
                 <div class="top">
@@ -92,7 +144,10 @@
                     <h2>the end of the greatest animated movie series ever</h2>
                 </div>
                 <div class="bottom">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/acDHTkslk2w?si=oGJ38aiPQInsfxw3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/acDHTkslk2w?si=oGJ38aiPQInsfxw3"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
