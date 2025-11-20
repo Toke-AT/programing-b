@@ -1,4 +1,7 @@
-var currentPage = '#page2'
+var currentPage = '#page3'
+
+var mouseX = 0
+var mouseY = 0
 
 //P5 setup() bliver kaldt EN gang før siden vises 
 function setup(){
@@ -7,7 +10,7 @@ function setup(){
     //skift til current page 
     shiftPage(currentPage)
 
-
+    
     
     //Sæt menu op
     //Hent alle sider som et array
@@ -35,3 +38,16 @@ function shiftPage(newPage){
     select(newPage).addClass('show')
     currentPage = newPage
 }
+
+document.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX
+    mouseY = e.clientY
+    //console.log(mouseX, mouseY)
+    screenWidth = window.innerWidth
+    screenHeight = window.innerHeight
+
+    document.querySelectorAll(".parallax-mouse").forEach((element) => {
+        element.style.transform = `translate(${mouseX - screenWidth/2 }px, ${mouseY - screenHeight/2 }px)`
+        
+    })
+})
