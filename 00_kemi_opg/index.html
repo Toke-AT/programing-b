@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web template with p5.js</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.min.js"></script>
+</head>
+
+<body>
+    <div class="menu-wrapper">
+        <div class="burger-icon">≡</div>
+        <div class="sidebar">
+
+        </div>
+    </div>
+    <main>
+        <div title="kemi parallax" class="page" id="page1">
+
+            <div class="background1 parallax">
+
+            </div>
+            <div class="background2 parallax">
+
+            </div>
+        </div>
+        <div title="emne dropdown menu" class="page" id="page2">
+
+            <div class="bottom">
+                <section>
+                    <div class="bg"></div>
+
+                    <select id="select-state" onchange="changeBackground(this)">
+                        <option value="assets/håndsprit.jpg">Håndsprit</option>
+                        <option value="assets/eddike.jpg">Eddike</option>
+                        <option value="assets/slik.jpg">slik</option>
+                        <option value="assets/toothless.jpg">Toothless</option>
+                        <option value="assets/oxidering.png">oxidering</option>
+                        <option value="assets/oxidering.png">tollens forsøget</option>
+                    </select>
+                </section>
+                <script type="text/javascript">
+                    function changeBackground(getbg) {
+                        let bg = document.querySelector(".bg");
+                        let asset = getbg.value;
+
+                        console.log(asset);
+                        bg.style.background = 'url(' + asset + ')';
+                        bg.style.backgroundSize = "contain";
+                        bg.style.backgroundPosition = "center center";
+                        bg.style.backgroundRepeat = "no-repeat";
+                        bg.style.backgroundAttachment = "fixed";
+
+                    }
+
+                </script>
+            </div>
+        </div>
+
+        <div title="alkoholer" class="page" id="page3">
+
+            <div class="left">
+                <div class="top">
+                    <h1>håndsprit: alkohol</h1>
+                </div>
+                <div class="bottom">
+                    <h3>
+                        håndsprit består af mellem 70%-85% alkohol ofte i form af ethanol eller isopropylalkohol.
+                        alkoholen i håndsprit bruges til at dræbe bakterier og viruser
+                    </h3>
+                    <h3>
+                        Alkoholen virker ved at ødelægge cellemembranen på mikroorganismerne og dermed dræbe dem.
+                        ethanol er en primær alkohol den er polær pga dens -OH gruppe. (men lad være med at drikke
+                        håndsprit, da de indholder ofte opkast midler)
+                    </h3>
+                </div>
+            </div>
+
+            <div class="right">
+                <div class="box">
+                    <div class="top">
+                        <h1>ethanol</h1>
+                    </div>
+                    <div class="bottom">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div title="carboxylsyre" class="page" id="page4">
+            <div class="col">
+                <h1 id="overlay">eddike: carboxylsyre</h1>
+                <h3>Den carboxylsyre, der findes i eddike, er eddikesyre CH3COOH. Eddike er en opløsning af
+                    eddikesyre i vand, typisk med et syreindhold på 5-7% for fødevarebrug.</h3>
+
+            </div>
+            <div class="col">
+                <h3 id="overlay">Fremstilling: Den dannes, når gærbakterier omdanner alkohol (ethanol) til
+                    eddikesyre.</h3>
+                <h3>Anvendelse: Den bruges som konserveringsmiddel (E-nummer E260), smagsstof og surhedsregulerende
+                    middel i madlavning.</h3>
+                <h2>Hvad er carboxylsyrer generelt?</h2>
+                <h3>Definition: Carboxylsyrer er en gruppe organiske syrer, der alle indeholder en carboxylgruppe
+                    (\(COOH\)).</h3>
+                <h3>Andre eksempler: Myresyre, mælkesyre og propionsyre er andre eksempler på carboxylsyrer.</h3>
+
+            </div>
+        </div>
+
+        <div title="aldehyder" class="page" id="page5">
+            <div class="left">
+                <h1>slik: aldehyder</h1>
+                <h3>aldehyder findes i slik, især som aromagivere, hvor de tilføjer specifikke smagsnuancer. Et eksempel
+                    er kanelaldehyd, der findes i kanel og bruges til at give smag i slik, is og bagværk. Andre
+                    aldehyder som veratraldehyd, der har en sød og vaniljeagtig aroma, anvendes også til at give smag i
+                    slik og andre fødevarer. </h3>
+                <h3>En aldehyd er en organisk forbindelse, der indeholder en aldehydgruppe -CH=O i et molekyle.
+                    Denne gruppe består af et carbonatom, der er dobbeltbundet til et oxygenatom og enkeltbundet til et
+                    hydrogenatom. Aldehyder kan dannes fra oxidation af primære alkoholer</h3>
+                <h3>Aldehyder er kemisk reaktive og kan oxideres til de tilsvarende carboxylsyrer; for eksempel vil
+                    butyraldehyd blive oxideret til butansyre.</h3>
+                <h3>De navngives ved at tilføje endelsen "-al" til navnet på den tilsvarende alkan, såsom methanal fra
+                    methan og ethanal fra ethan.</h3>
+                <h3>Anvendelser: De forekommer i mange naturlige processer, som f.eks. i vinfremstilling</h3>
+
+            </div>
+            <div class="right">
+                <div class="top">
+                    <h1>tollens reagens</h1>
+                    <h2>the end of the greatest animated movie series ever</h2>
+                </div>
+                <div class="bottom">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/acDHTkslk2w?si=oGJ38aiPQInsfxw3"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="./index.js"></script>
+</body>
+
+</html>
