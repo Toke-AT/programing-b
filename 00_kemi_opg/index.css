@@ -242,7 +242,7 @@ section{
 
 #page4 .col:nth-child(1){
     background-color: brown;
-    background-image: url("assets/eddikesyre.jpg");
+    background-image: url("./assets/eddikesyre.jpg");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -286,12 +286,12 @@ section{
 }
 
 #page5 .left {
-    background-image: url('./assets/slik.jpg');
+    background-image: url('./assets/kanel.png');
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    background-color: brown;
-    color: rgb(255, 255, 255);
+    background-color: whitesmoke;
+    color: rgb(0, 0, 0);
     
 }
 
@@ -309,6 +309,10 @@ section{
     overflow: hidden;
     height: 50vh;
     position: relative;
+    background-image: url("./assets/tollens_reagens.jpg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 #page5 .right .bottom video{
