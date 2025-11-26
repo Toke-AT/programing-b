@@ -242,6 +242,12 @@ section{
 
 #page4 .col:nth-child(1){
     background-color: brown;
+    background-image: url("assets/eddikesyre.jpg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 12px;
+    color: rgba(15, 114, 61, 0.9);
 
 }
 #page4 .col:nth-child(1) video{
