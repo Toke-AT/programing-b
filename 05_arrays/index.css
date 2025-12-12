@@ -107,4 +107,14 @@ h1 {
 
 }
 
+#page2{
+    grid-template-rows: 1fr 1fr 8fr;
+}
 
+
+
+.elev{
+    width: 300px;
+    height: 300px;
+    border: 1px solid lightblue;
+}

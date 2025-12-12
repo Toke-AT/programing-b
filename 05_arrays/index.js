@@ -1,9 +1,6 @@
-var currentPage = '#page3'
-var capture 
-
+var currentPage = '#page1'
 
 function preload(){
-    
 }
 
 //P5 setup() bliver kaldt EN gang før siden vises 
@@ -13,28 +10,35 @@ function setup(){
     //skift til current page 
     shiftPage(currentPage)
 
-    //array with square brackets
-    var klassen2T = ["balder","asta","viggo","toke","tobias","selma","bertram","victor"]
+    //Vi opretter et array med firkantede paranteser
+    var klassen2T = ["Balder", "Asta", "Viggo", "Bertram", "Tobias", "Selma", "Toke", "Victor"]
 
-    //how many elements
-    console.log(klassen2T.length,"elements in list")
-    //how to use element
-    console.log(klassen2T[0],'first in list')
-    //how to add new elements
-    klassen2T.push("amadeus")
-    klassen2T.push("john")
-    klassen2T.push("mollie")
-    klassen2T.push("lisbet")
-    klassen2T.push("silads")
-    klassen2T.push("milads")
-    klassen2T.push("nikolai")
-    klassen2T.push("mads")
-    klassen2T.push("sebastian")
-    klassen2T.push("asbjørn")
-    klassen2T.push("floki")
-    klassen2T.push("gilbert")
-    klassen2T.push("ludvig")
-    
+    //Hvor mange elementer?
+    console.log(klassen2T.length, " elementer i listen")
+    //Sådan bruger vi et element:
+    console.log(klassen2T[0], ' er den første i listen') 
+    //Sådan lægger vi nye elementer til 
+    klassen2T.push("Mollie")
+    klassen2T.push("Nikolaj")
+    klassen2T.push("Mads")
+    klassen2T.push("Lisbet")
+    klassen2T.push("Asbjørn")
+    klassen2T.push("Gilbert")
+    klassen2T.push("Ludvig")
+    klassen2T.push("John")
+    klassen2T.push("Silas")
+    klassen2T.push("Milas")
+    klassen2T.push("Sebastian")
+    klassen2T.push("Flóki")
+    klassen2T.push("Amadeus")
+
+    console.log(klassen2T, klassen2T.length)
+
+    //Sådan looper vi igennem et array:
+    klassen2T.map((e)=>{
+        console.log('Denne person i klassen hedder ' + e)
+    })
+
     
     //Sæt menu op
     //Hent alle sider som et array

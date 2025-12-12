@@ -1,8 +1,9 @@
-var currentPage = '#page3'
+var currentPage = '#page4'
 var capture 
 var otterSound, rainSound, fireGif
 var recBtn, recorder, audioFile
 var isRecording = false
+var speakInp, speakBtn
 
 function preload(){
     otterSound = loadSound('./assets/ottersound.mp3') 
@@ -61,12 +62,26 @@ function setup(){
         }else{
             recorder.stop()
             isRecording = false
+            recBtn.html("Start recording")
             setTimeout(()=>{
                 audioFile.play()
-            }, 200)
+                save(audioFile, "myVoice.wav")
+            }, 500)
 
         }
     })
+
+    //Speech synth
+    speakInp = select('#speakMe')
+    speakBtn = select('#speakBtn')
+    //Når man trykker på knappen, læses indholdet i input feltet op
+    speakBtn.mousePressed(()=>{
+        const utterance = new SpeechSynthesisUtterance(speakInp.value())
+        utterance.lang = "ur-PK"
+        utterance.rate = 1.4
+        utterance.pitch = 1.4
+        speechSynthesis.speak(utterance)
+    }) 
 
     
     //Sæt menu op
