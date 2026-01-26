@@ -1,0 +1,31 @@
+body{
+    display:flex;
+    justify-content: center;
+    padding:0;
+    margin:0;
+    background-color: black;
+    color:white;
+}
+
+#game-container{
+    position:relative;
+    width:fit-content;
+    height:fit-content;
+}
+
+#bg{
+    max-width: 100vw;
+    max-height: 100vh;
+    width: auto;
+    height: auto;
+}
+
+.asta{
+    position:absolute;
+    width:50px;
+}
+
+.stats{
+    position:absolute;
+    left:0;
+}

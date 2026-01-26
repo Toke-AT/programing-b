@@ -66,7 +66,7 @@ function setup(){
             setTimeout(()=>{
                 audioFile.play()
                 save(audioFile, "myVoice.wav")
-            }, 500)
+            }, 1000)
 
         }
     })
