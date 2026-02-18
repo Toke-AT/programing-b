@@ -51,7 +51,7 @@ function setup() {
     // -------------------------------------------------------------
     var rows = table.rows
     rows = shuffle(rows).slice(0, 1000) // Vi begrænser til 1000 punkter for hastighedens skyld
-
+    console.log()
     data = rows.map(row => {
         // Hent værdier fra de kolonner vi valgte i toppen
         // HUSK: Alt fra CSV er tekst, så vi bruger Number() til tallene
@@ -99,5 +99,21 @@ function setup() {
         }
     } )
     console.log('Så fik vi lavet dataset grupperne', datasets)
-}
 
+    // nu bruger vi chart.js til at oprette grafen
+    const canvasChart = document.getElementById('chartCanvas')
+    //nu bliver vi objektorienteret
+    myChart = new Chart(canvasChart, {
+        //scatter er et punktdiagram i 2D (x,y)
+        type:'scatter',
+        data: {datasets:datasets },
+        options:{
+            //scales styerer hvad x og y hedder
+            scales:{
+                x:{title:{display:true,text:colX}},
+                y:{title:{display:true,text:colY}}
+            }
+        }
+
+    })
+}
