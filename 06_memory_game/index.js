@@ -39,12 +39,13 @@ function setupGame(){
                         //VI HAR ET MATCH
                         flippedCards[0].addClass('checked')
                         flippedCards[1].addClass('checked')
+                        
                     }else{
                         setTimeout(()=>{
                             flippedCards[0].removeClass('show')
                             flippedCards[1].removeClass('show')
                             flippedCards = []
-                        }, 2000)
+                        }, 1000)
                     }
                 }
             }

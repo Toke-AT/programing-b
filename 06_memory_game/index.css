@@ -11,6 +11,11 @@ body,
 
 }
 
+@keyframes matchAnimation {
+    0% {clip-path: circle(0% at 50% 50%); scale: 1;}
+    50% {clip-path: circle(50% at 50% 50%); scale: 1.1;}
+    100% {clip-path: circle(100% at 50% 50%); scale: 1;}
+}
 
 .page {
     width: 100vw;
@@ -58,6 +63,11 @@ h1 {
   box-shadow: 0 0 4px 3px whitesmoke;
   transition: all .3s ease-in-out;
   cursor: pointer;
+}
+
+.card.checked {
+    transform:rotateY(180deg);
+    animation: matchAnimation 4s forwards;
 }
 
 

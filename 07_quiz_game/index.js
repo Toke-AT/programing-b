@@ -42,8 +42,40 @@ let questions = [
   }
 ]
 
+var q = 0
+var score = 0
+
 function setup(){
     noCanvas() 
+    select('#startGame').mousePressed(()=>{
+      shiftPage('#page2')
+      showQ()
+    })
+
+    //Hvis man klikker på true, kalder vi funktionen
+    //CheckAnswer med argumentet true
+    select('#trueBtn').mousePressed(()=>checkAnswer(true))
+    select('#falseBtn').mousePressed(()=>checkAnswer(false))
+
+}
+
+function showQ(){
+  //Vi vælger html element med id "question" og 
+  //indsætter først objekts "spørgsmål" i den
+  select("#question").html(questions[q].spørgsmål)
+}
+
+function checkAnswer(bool){
+  if(questions[q].svar == bool){
+    score++
+  }
+  q++
+  if(questions.length == q){
+    select('#result').html(`Yay, du fik ${score} point`)
+    shiftPage('#page3')
+    return
+  }
+  showQ()
 }
 
 function shiftPage(id){
