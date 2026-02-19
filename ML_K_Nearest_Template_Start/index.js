@@ -98,6 +98,19 @@ function setup() {
             pointHoverRadius: 8
         }
     } )
+
+    //nu indsætter vi et enkelt datasæt for brugeren
+    datasets.push({
+        label: "dit gæt",
+        data: [// { x:0, y:0 }
+        ],
+        pointStyle:"crossRot",
+        pointRadius: 10,
+        backgroundColor: 'black',
+        borderColor: 'black',
+        borderWidth: 4
+    })
+
     console.log('Så fik vi lavet dataset grupperne', datasets)
 
     // nu bruger vi chart.js til at oprette grafen
@@ -116,4 +129,53 @@ function setup() {
         }
 
     })
+
+    setupControls()
+}
+
+function setupControls(){
+    //1) find alle x og y værdier
+    //2) fordi vi skal bruge dem til at besteme hvad slider
+    var xValues = data.map( point => point.x )
+    var yValues = data.map( point => point.y )
+    //beregn mindste og største værdier
+    var minX = Math.min(...xValues)
+    var minY = Math.min(...yValues)
+    var maxX = Math.max(...xValues)
+    var maxY = Math.max(...yValues)
+
+    console.log('her er min, max for alt data',minX, minY, maxX, maxY)
+
+    var xSlider = select("#input-x")
+    var ySlider = select("#input-y")
+
+    xSlider.attribute('min', Math.floor(minX))
+    xSlider.attribute('max', Math.ceil(maxX))
+    xSlider.attribute('step', ( maxX - minX ) / 100 )
+    xSlider.value(minX + maxX / 2)
+
+    //gør det samme med y
+    ySlider.attribute('min', Math.floor(minY))
+    ySlider.attribute('max', Math.ceil(maxY))
+    ySlider.attribute('step', ( maxY - minY ) / 100 )
+    ySlider.value(minY + maxY / 2)
+
+    //input er on change eventet 
+    xSlider.input( () => select('#val-x').html( xSlider.value() ))
+    ySlider.input( () => select('#val-y').html( ySlider.value() ))
+
+
+    var kSlider = select('#k-slider')
+    kSlider.input( ()=> select('#k-value').html( kSlider.value() ))
+
+    select ('#predict-btn').mousePressed(classifyUnknown)
+
+}
+
+function classifyUnknown(){
+    //aflæs slidere i to variabler
+    //indsæt punkt fra slider i graf
+    //løb data gennem dvs. alle datapunkterne og find hver og ens afstand til brugerens gæt
+    //soter i nærmest
+    //spørg de nærmeste [k] hvilken gruppe de tilhører
 }
