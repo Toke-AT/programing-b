@@ -102,7 +102,7 @@ function setup() {
     //nu indsætter vi et enkelt datasæt for brugeren
     datasets.push({
         label: "dit gæt",
-        data: [// { x:0, y:0 }
+        data: [ { x:0, y:0 }
         ],
         pointStyle:"crossRot",
         pointRadius: 10,
@@ -174,8 +174,51 @@ function setupControls(){
 
 function classifyUnknown(){
     //aflæs slidere i to variabler
+    var inputX = select('#input-x').value()
+    var inputY = select('#input-y').value()
+
     //indsæt punkt fra slider i graf
+    var guessDataset = myChart.data.datasets[myChart.data.datasets.length-1]
+    guessDataset.data = [{x: inputX, y: inputY}]
+    myChart.update()
     //løb data gennem dvs. alle datapunkterne og find hver og ens afstand til brugerens gæt
+    data.map(p =>{
+        //dist ligger i pm5.js og laver pytagoras for os
+        p.distance = dist(inputX, inputY, p.x, p.y)
+        return p
+    })
     //soter i nærmest
+    data.sort((a,b) => a.distance - b.distance)
     //spørg de nærmeste [k] hvilken gruppe de tilhører
+    var k = select('#k-slider').value()
+    // neighbours er nu de første k elemnter
+    var neighbours = data.slice(0, k)
+
+    //de stemmer om resultat og vinder findes
+    //votes er tomt objekt
+    var votes = {}
+    neighbours.map( n => {
+        if(votes[n.label] === undefined){
+            votes[n.label] = 0
+        }
+        votes[n.label] += 1
+    })
+    console.log(votes, 'her er vores votes')
+    //object.keys giver os navnene på nøglerne i et object, idette tilfæde 
+    var allLabels = Object.keys(votes)
+
+    //start med første som winner
+    var winner = allLabels[0]
+
+    // løb alt i gennem
+    allLabels.map( l => {
+        if (votes[l] > votes[winner]){
+            winner = l
+        }
+    })
+
+    //vis i resultat feltet hvilken kllasse gætet tilhøre
+    console.log('og vinderen er', winner)
+
+    select('#winner').html(winner)
 }
