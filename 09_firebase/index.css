@@ -22,3 +22,15 @@ body,
     left: 0;
 }
 
+#newQuote{
+    width: 40vw;
+}
+
+#quotes{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    padding: 2rem 10vw;
+    max-height: 50vh;
+    overflow: scroll;
+}
