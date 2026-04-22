@@ -34,3 +34,27 @@ body,
     max-height: 50vh;
     overflow: scroll;
 }
+.card{
+    border:1px solid black;
+    padding:3rem;
+    border-radius:1rem;
+    position:relative;
+    padding-top:5rem;
+}
+
+.date{
+    color:lightblue;
+    font-weight:bold;
+    margin-top:1rem;
+}
+
+.delete{
+    position:absolute;
+    top:1rem;
+    right:1rem;
+}
+
+.delete:hover{
+    cursor: pointer;
+    box-shadow: 2px 2px 2px 4px rgb(0 0 255 / 0.2);
+}
