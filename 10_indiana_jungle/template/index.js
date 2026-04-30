@@ -6,10 +6,11 @@ var gameState = 0
 var timerInterval = null
 var seconds = 0
 
-// Rum 1: antal fundne symboler
+
+// Rum 2: antal fundne symboler
 var symbolsFound = 0
 
-// Rum 2: rigtig rækkefølge og tæller
+// Rum 5: rigtig rækkefølge og tæller
 var cloudAnswer = ['cloud1', 'cloud3', 'cloud2']
 var cloudStep = 0
 
@@ -30,17 +31,20 @@ function setup() {
     })
 
     // ---- RUM 1: Hotspots ----
-    select('#room1 #symbol1').mousePressed(() => findSymbol('#room1 #symbol1'))
-    select('#room1 #symbol2').mousePressed(() => findSymbol('#room1 #symbol2'))
-    select('#room1 #symbol3').mousePressed(() => findSymbol('#room1 #symbol3'))
+    select('#room1 #symbol0').mousePressed(() => findSymbol('#room1 #symbol0'))
 
-    // ---- RUM 2: Skyer ----
-    select('#room2 #cloud1').mousePressed(() => clickCloud('cloud1'))
-    select('#room2 #cloud2').mousePressed(() => clickCloud('cloud2'))
-    select('#room2 #cloud3').mousePressed(() => clickCloud('cloud3'))
+    // ---- RUM 2: Hotspots ----
+    select('#room2 #symbol1').mousePressed(() => findSymbol('#room2 #symbol1'))
+    select('#room2 #symbol2').mousePressed(() => findSymbol('#room2 #symbol2'))
+    select('#room2 #symbol3').mousePressed(() => findSymbol('#room2 #symbol3'))
 
-    select('#room2 #room2-submit').mousePressed(() => {
-        checkRoom2Answer()
+    // ---- RUM 5: Skyer ----
+    select('#room5 #cloud1').mousePressed(() => clickCloud('cloud1'))
+    select('#room5 #cloud2').mousePressed(() => clickCloud('cloud2'))
+    select('#room5 #cloud3').mousePressed(() => clickCloud('cloud3'))
+
+    select('#room5 #room5-submit').mousePressed(() => {
+        checkRoom5Answer()
     })
 
     // ---- SLUTSIDE ----
@@ -89,21 +93,35 @@ function startGame() {
 }
 
 // ============================================
-// RUM 1: FIND SYMBOLER I JUNGLEN
+// RUM 1: Grab the artifact
 // ============================================
 function findSymbol(id) {
     select(id).hide()
     symbolsFound++
-    select('#room1-found').html('Fundet: ' + symbolsFound + ' / 3')
+    select('#room1-found').html('Fundet: ' + symbolsFound + ' / 1')
 
-    if (symbolsFound === 3) {
+    if (symbolsFound === 1) {
         gameState = 1
         shiftPage('#room2')
     }
 }
 
 // ============================================
-// RUM 2: KLIK SKYER I RÆKKEFØLGE
+// RUM 2: pick an escape rute
+// ============================================
+function findSymbol(id) {
+    select(id).hide()
+    symbolsFound++
+    select('#room2-found').html('Fundet: ' + symbolsFound + ' / 3')
+
+    if (symbolsFound === 3) {
+        gameState = 2
+        shiftPage('#room5')
+    }
+}
+
+// ============================================
+// RUM 5: KLIK SKYER I RÆKKEFØLGE
 // ============================================
 function clickCloud(id) {
     if (id === cloudAnswer[cloudStep]) {
@@ -113,19 +131,19 @@ function clickCloud(id) {
     }
 
     if (cloudStep === cloudAnswer.length) {
-        select('#room2 #room2-code').addClass('show')
+        select('#room5 #room5-code').addClass('show')
     }
 }
 
-function checkRoom2Answer() {
-    var answer = select('#room2 #room2-answer').value().toLowerCase()
+function checkRoom5Answer() {
+    var answer = select('#room5 #room5-answer').value().toLowerCase()
     if (answer.includes('kort')) {
-        gameState = 2
+        gameState = 5
         stopTimer()
         select('#final-time').html('Din tid: ' + seconds + ' sekunder')
         shiftPage('#complete')
     } else {
-        select('#room2 #room2-error').html('Ikke helt - prøv igen!')
+        select('#room5 #room5-error').html('Ikke helt - prøv igen!')
     }
 }
 
@@ -167,17 +185,24 @@ function saveHighScore() {
 function resetGame() {
     select('#timer').html('0 sek')
 
+
     // Nulstil rum 1
-    select('#room1-found').html('Fundet: 0 / 3')
-    select('#room1-hint').html('Find de 3 skjulte symboler i junglen...')
-    select('#room1 #symbol1').show()
-    select('#room1 #symbol2').show()
-    select('#room1 #symbol3').show()
+    select('#room1-found').html('Fundet: 0 / 1')
+    select('#room1-hint').html('grab the artifact')
+    select('#room1 #symbol0').show()
+
 
     // Nulstil rum 2
-    select('#room2 #room2-code').removeClass('show')
-    select('#room2 #room2-answer').value('')
-    select('#room2 #room2-error').html('')
+    select('#room2-found').html('Fundet: 0 / 3')
+    select('#room2-hint').html('Find de 3 skjulte symboler i junglen...')
+    select('#room2 #symbol1').show()
+    select('#room2 #symbol2').show()
+    select('#room2 #symbol3').show()
+
+    // Nulstil rum 5
+    select('#room5 #room5-code').removeClass('show')
+    select('#room5 #room5-answer').value('')
+    select('#room5 #room5-error').html('')
 
     // Nulstil slutside
     select('#btn-save').removeAttribute('disabled')

@@ -85,15 +85,18 @@ button { background: white; }
 
 /* ---- Rum-baggrunde ---- */
 #start    { background-image: url('./assets/forest.jpg'); }
-#room1    { background-image: url('./assets/forest.jpg'); }
-#room2    { background-image: url('./assets/skies.jpg'); }
+#room1    { background-image: url('./assets/360_F_1341022160_thkSG1QlUecDCDcPgI74Uq5tPOmqOfre.jpg'); }
+#room2    { background-image: url('./assets/forest.jpg'); }
+#room5    { background-image: url('./assets/skies.jpg'); }
 #complete { background-image: url('./assets/skies.jpg'); }
 
 /* ---- Hotspot-placeringer ---- */
-#room1 #symbol1 { top: 35%; left: 20%; }
-#room1 #symbol2 { top: 60%; left: 65%; }
-#room1 #symbol3 { top: 45%; left: 45%; }
+#room1 #symbol0 { top: 65%; left: 67%; }
 
-#room2 #cloud1 { top: 25%; left: 25%; font-size: 2.5rem; }
-#room2 #cloud2 { top: 35%; left: 60%; font-size: 4rem; }
-#room2 #cloud3 { top: 20%; left: 45%; font-size: 3rem; }
+#room2 #symbol1 { top: 35%; left: 20%; }
+#room2 #symbol2 { top: 60%; left: 65%; }
+#room2 #symbol3 { top: 45%; left: 45%; }
+
+#room5 #cloud1 { top: 25%; left: 25%; font-size: 2.5rem; }
+#room5 #cloud2 { top: 35%; left: 60%; font-size: 4rem; }
+#room5 #cloud3 { top: 20%; left: 45%; font-size: 3rem; }
