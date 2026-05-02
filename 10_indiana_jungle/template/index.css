@@ -87,8 +87,15 @@ button { background: white; }
 #start    { background-image: url('./assets/forest.jpg'); }
 #room1    { background-image: url('./assets/360_F_1341022160_thkSG1QlUecDCDcPgI74Uq5tPOmqOfre.jpg'); }
 #room2    { background-image: url('./assets/forest.jpg'); }
+#room3    { background-image: url('./assets/StockCake-Jungle_River_Glimpse-1269869-medium.jpg'); }
+#room4    { background-image: url('./assets/canyon_bridge.jpg'); }
 #room5    { background-image: url('./assets/skies.jpg'); }
 #complete { background-image: url('./assets/skies.jpg'); }
+
+/* ---- room 3 ---- */
+#room3 {
+    background-size: contain;
+}
 
 /* ---- Hotspot-placeringer ---- */
 #room1 #symbol0 { top: 65%; left: 67%; }

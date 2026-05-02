@@ -103,12 +103,20 @@ function findSymbol(id) {
     if (symbolsFound === 1) {
         gameState = 1
         shiftPage('#room2')
+        console.log('shiftpage called')
     }
 }
+//make riddle like cloud room
+//riddle answer "time"
+//then start timer and shiftpage to room2
 
 // ============================================
 // RUM 2: pick an escape rute
 // ============================================
+
+//make 2 hotspots on map-like background
+//force pick one 
+//then shiftpage to picked room path
 function findSymbol(id) {
     select(id).hide()
     symbolsFound++
@@ -119,6 +127,30 @@ function findSymbol(id) {
         shiftPage('#room5')
     }
 }
+
+// ============================================
+// RUM 3: river path
+// ============================================
+
+//show 2 choice paths: swim over river or climb tree
+//if click swim over river then play swimming sound and shiftpage to loop video of croc eating you 
+//then shiftpage to gameover screen
+
+//if click climb tree then shiftpage to treetop and make "call helicopter" button 
+//if "call helicopter" pressed then show captcha-like puzzle with helicopters and planes
+//hint "click on the helicopter"
+//if correct then play helicopter sounds and shiftpage to win screen
+//if wrong shiftpage to video of planecrash gameover screen
+
+// ============================================
+// RUM 4: canyon bridge
+// ============================================
+
+//cross bridge by clicking on hotspot arrow foreward
+//create timed event with 3 sek countdown
+//click on hotspot 8 times before 3 sek to cross bridge
+//if fail shiftpage to gameover screen
+//if crossed bridge shift page to room 5
 
 // ============================================
 // RUM 5: KLIK SKYER I RÆKKEFØLGE
@@ -134,11 +166,13 @@ function clickCloud(id) {
         select('#room5 #room5-code').addClass('show')
     }
 }
+//answer riddle "helicopter"
+//then shiftpage to win screen 
 
 function checkRoom5Answer() {
     var answer = select('#room5 #room5-answer').value().toLowerCase()
     if (answer.includes('kort')) {
-        gameState = 5
+        gameState = 3
         stopTimer()
         select('#final-time').html('Din tid: ' + seconds + ' sekunder')
         shiftPage('#complete')
@@ -146,6 +180,18 @@ function checkRoom5Answer() {
         select('#room5 #room5-error').html('Ikke helt - prøv igen!')
     }
 }
+
+// ============================================
+// RUM W: Win screen AKA saved by helicopter 
+// ============================================
+
+
+// ============================================
+// RUM X: GAMEOVER screen with unike background
+// ============================================
+
+//match death to gameover background
+//dumb ways to die: crocodile, plane crash, bridge colapse, 
 
 // ============================================
 // HIGH SCORE (Firestore)
