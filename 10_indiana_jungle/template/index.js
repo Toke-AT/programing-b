@@ -41,7 +41,7 @@ function setup() {
 
     // ---- RUM 2: Hotspots ----
     select('#room2 #symbol1').mousePressed(() => takePath('#room2 #symbol1'))
-    select('#room2 #symbol2').mousePressed(() => findSymbol('#room2 #symbol2'))
+    select('#room2 #symbol2').mousePressed(() => takePath('#room2 #symbol2'))
     select('#room2 #symbol3').mousePressed(() => takePath('#room2 #symbol3'))
 
     // ---- RUM 5: Skyer ----
@@ -131,10 +131,13 @@ function takePath(id) {
     select(id).show()
     if ('#symbol1')
         shiftPage('#room4')
-    
-    
-    if ('#symbol3')
+    console.log('4')
+}
+function takePath(id) {
+    select(id).show()
+    if ('#symbol2')
         shiftPage('#room3')
+    console.log('3')
     
 }
 //make 2 hotspots on map-like background
