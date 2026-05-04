@@ -31,7 +31,13 @@ function setup() {
     })
 
     // ---- RUM 1: Hotspots ----
-    select('#room1 #symbol0').mousePressed(() => findSymbol('#room1 #symbol0'))
+    select('#room1 #symbol0').mousePressed(() => {
+        console.log('Symbol presssed')
+        findSymbol('#room1 #symbol0')
+    })
+    select('#room1 #room1-submit').mousePressed(() => {
+        checkRoom1Answer()
+    })
 
     // ---- RUM 2: Hotspots ----
     select('#room2 #symbol1').mousePressed(() => findSymbol('#room2 #symbol1'))
@@ -88,7 +94,6 @@ function startGame() {
     gameState = 0
     symbolsFound = 0
     cloudStep = 0
-    startTimer()
     shiftPage('#room1')
 }
 
@@ -96,14 +101,27 @@ function startGame() {
 // RUM 1: Grab the artifact
 // ============================================
 function findSymbol(id) {
+    console.log('function called')
     select(id).hide()
     symbolsFound++
+    console.log('sybol', symbolsFound)
     select('#room1-found').html('Fundet: ' + symbolsFound + ' / 1')
 
     if (symbolsFound === 1) {
         gameState = 1
-        shiftPage('#room2')
         console.log('shiftpage called')
+        select('#room1 #room1-code').addClass('show')
+    }
+}
+
+function checkRoom1Answer() {
+    var answer = select('#room1 #room1-answer').value().toLowerCase()
+    if (answer.includes('time')) {
+        gameState = 2
+        startTimer()
+        shiftPage('#room2')
+    } else {
+        select('#room1 #room1-error').html('Ikke helt - prøv igen!')
     }
 }
 //make riddle like cloud room
@@ -117,17 +135,6 @@ function findSymbol(id) {
 //make 2 hotspots on map-like background
 //force pick one 
 //then shiftpage to picked room path
-function findSymbol(id) {
-    select(id).hide()
-    symbolsFound++
-    select('#room2-found').html('Fundet: ' + symbolsFound + ' / 3')
-
-    if (symbolsFound === 3) {
-        gameState = 2
-        shiftPage('#room5')
-    }
-}
-
 // ============================================
 // RUM 3: river path
 // ============================================
@@ -236,6 +243,9 @@ function resetGame() {
     select('#room1-found').html('Fundet: 0 / 1')
     select('#room1-hint').html('grab the artifact')
     select('#room1 #symbol0').show()
+    select('#room1 #room1-code').removeClass('show')
+    select('#room1 #room1-answer').value('')
+    select('#room1 #room1-error').html('')
 
 
     // Nulstil rum 2
