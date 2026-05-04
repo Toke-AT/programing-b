@@ -2,6 +2,7 @@ body {
     overflow: hidden;
     background: #111;
     color: white;
+    box-sizing: border-box;
 }
 
 /* Sider — skjult til venstre, vist med .show */
@@ -86,11 +87,13 @@ button { background: white; }
 /* ---- Rum-baggrunde ---- */
 #start    { background-image: url('./assets/forest.jpg'); }
 #room1    { background-image: url('./assets/360_F_1341022160_thkSG1QlUecDCDcPgI74Uq5tPOmqOfre.jpg'); }
-#room2    { background-image: url('./assets/forest.jpg'); }
+#room2    { background-image: url('./assets/map.png'); } 
 #room3    { background-image: url('./assets/StockCake-Jungle_River_Glimpse-1269869-medium.jpg'); }
 #room4    { background-image: url('./assets/canyon_bridge.jpg'); }
 #room5    { background-image: url('./assets/skies.jpg'); }
 #complete { background-image: url('./assets/skies.jpg'); }
+/* ---- room 2 ---- */
+
 
 /* ---- room 3 ---- */
 #room3 {
@@ -100,9 +103,9 @@ button { background: white; }
 /* ---- Hotspot-placeringer ---- */
 #room1 #symbol0 { top: 65%; left: 67%; }
 
-#room2 #symbol1 { top: 35%; left: 20%; }
+#room2 #symbol1 { top: 21%; left: 37%; }
 #room2 #symbol2 { top: 60%; left: 65%; }
-#room2 #symbol3 { top: 45%; left: 45%; }
+#room2 #symbol3 { top: 45%; left: 47%; }
 
 #room5 #cloud1 { top: 25%; left: 25%; font-size: 2.5rem; }
 #room5 #cloud2 { top: 35%; left: 60%; font-size: 4rem; }

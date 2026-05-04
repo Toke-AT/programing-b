@@ -40,9 +40,9 @@ function setup() {
     })
 
     // ---- RUM 2: Hotspots ----
-    select('#room2 #symbol1').mousePressed(() => findSymbol('#room2 #symbol1'))
+    select('#room2 #symbol1').mousePressed(() => takePath('#room2 #symbol1'))
     select('#room2 #symbol2').mousePressed(() => findSymbol('#room2 #symbol2'))
-    select('#room2 #symbol3').mousePressed(() => findSymbol('#room2 #symbol3'))
+    select('#room2 #symbol3').mousePressed(() => takePath('#room2 #symbol3'))
 
     // ---- RUM 5: Skyer ----
     select('#room5 #cloud1').mousePressed(() => clickCloud('cloud1'))
@@ -124,14 +124,19 @@ function checkRoom1Answer() {
         select('#room1 #room1-error').html('Ikke helt - prøv igen!')
     }
 }
-//make riddle like cloud room
-//riddle answer "time"
-//then start timer and shiftpage to room2
-
 // ============================================
 // RUM 2: pick an escape rute
 // ============================================
-
+function takePath(id) {
+    select(id).show()
+    if ('#symbol1')
+        shiftPage('#room4')
+    
+    
+    if ('#symbol3')
+        shiftPage('#room3')
+    
+}
 //make 2 hotspots on map-like background
 //force pick one 
 //then shiftpage to picked room path
