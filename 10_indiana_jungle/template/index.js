@@ -129,16 +129,28 @@ function checkRoom1Answer() {
 // ============================================
 function takePath(id) {
     select(id).show()
+
     if ('#symbol1')
         shiftPage('#room4')
     console.log('4')
 }
+
 function takePath(id) {
     select(id).show()
+
     if ('#symbol2')
         shiftPage('#room3')
     console.log('3')
     
+}
+
+function mousePressed() {
+    if (mousePressed === '#symbol1') {
+        shiftPage('#page4')
+    }
+    if (mousePressed === '#symbol2') {
+        shiftPage('#page3')
+    }
 }
 //make 2 hotspots on map-like background
 //force pick one 
