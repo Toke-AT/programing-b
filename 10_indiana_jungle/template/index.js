@@ -42,8 +42,11 @@ function setup() {
     // ---- RUM 2: Hotspots ----
     select('#room2 #symbol1').mousePressed(() => takePath('#room2 #symbol1'))
     select('#room2 #symbol2').mousePressed(() => takePath('#room2 #symbol2'))
-    select('#room2 #symbol3').mousePressed(() => takePath('#room2 #symbol3'))
+    
 
+    // ---- RUM 3: River ----
+    select('#swim').mousePressed(() => riverPath('#swim'))
+    select('#climb').mousePressed(() => riverPath('#climb'))
     // ---- RUM 5: Skyer ----
     select('#room5 #cloud1').mousePressed(() => clickCloud('cloud1'))
     select('#room5 #cloud2').mousePressed(() => clickCloud('cloud2'))
@@ -52,6 +55,10 @@ function setup() {
     select('#room5 #room5-submit').mousePressed(() => {
         checkRoom5Answer()
     })
+
+    // ---- RUM 6: is it a plane? ----
+    select('#plane').mousePressed(() => superman('#plane'))
+    select('#helicopter').mousePressed(() => superman('#helicopter'))
 
     // ---- SLUTSIDE ----
     select('#btn-save').mousePressed(() => {
@@ -70,6 +77,12 @@ function shiftPage(newPage) {
     select(currentPage).removeClass('show')
     select(newPage).addClass('show')
     currentPage = newPage
+
+    if(currentPage=="#room4"){
+        setTimeout(()=>{
+            alert("hej toke")
+        }, 4000)
+    }
 }
 
 // ============================================
@@ -93,6 +106,7 @@ function stopTimer() {
 function startGame() {
     gameState = 0
     symbolsFound = 0
+    rPressed = 0
     cloudStep = 0
     shiftPage('#room1')
 }
@@ -130,35 +144,38 @@ function checkRoom1Answer() {
 function takePath(id) {
     select(id).show()
 
-    if ('#symbol1')
+    if (id.includes('#symbol1')) {
         shiftPage('#room4')
-    console.log('4')
-}
+        console.log('4')
+    }
 
-function takePath(id) {
-    select(id).show()
-
-    if ('#symbol2')
+    if (id.includes('#symbol2')) {
         shiftPage('#room3')
-    console.log('3')
-    
+        console.log('3')
+    }
+
 }
 
-function mousePressed() {
-    if (mousePressed === '#symbol1') {
-        shiftPage('#page4')
-    }
-    if (mousePressed === '#symbol2') {
-        shiftPage('#page3')
-    }
-}
 //make 2 hotspots on map-like background
 //force pick one 
 //then shiftpage to picked room path
 // ============================================
 // RUM 3: river path
 // ============================================
+function riverPath(id){
+    select(id).show()
 
+    if (id.includes('#swim')) {
+        shiftPage('#roomx')
+        console.log('gameover')
+    }
+
+    if (id.includes('#climb')) {
+        shiftPage('#room6')
+        console.log('6')
+    }
+
+}
 //show 2 choice paths: swim over river or climb tree
 //if click swim over river then play swimming sound and shiftpage to loop video of croc eating you 
 //then shiftpage to gameover screen
@@ -172,7 +189,14 @@ function mousePressed() {
 // ============================================
 // RUM 4: canyon bridge
 // ============================================
-
+function keyPressed(){
+    if (key === 'r'){
+        rPressed++
+    }
+    if (rPressed === 8) {
+        shiftPage('#room5')
+    }
+}
 //cross bridge by clicking on hotspot arrow foreward
 //create timed event with 3 sek countdown
 //click on hotspot 8 times before 3 sek to cross bridge
@@ -206,6 +230,23 @@ function checkRoom5Answer() {
     } else {
         select('#room5 #room5-error').html('Ikke helt - prøv igen!')
     }
+}
+// ============================================
+// RUM 6: tree top (plane or helicopter) 
+// ============================================
+function superman(id){
+    select(id).show()
+
+    if (id.includes('#plane')) {
+        shiftPage('#roomx')
+        console.log('gameover')
+    }
+
+    if (id.includes('#helicopter')) {
+        shiftPage('#roomw')
+        console.log('win')
+    }
+
 }
 
 // ============================================
@@ -269,11 +310,12 @@ function resetGame() {
 
 
     // Nulstil rum 2
-    select('#room2-found').html('Fundet: 0 / 3')
-    select('#room2-hint').html('Find de 3 skjulte symboler i junglen...')
+    select('#room2-hint').html('pick a path')
     select('#room2 #symbol1').show()
     select('#room2 #symbol2').show()
-    select('#room2 #symbol3').show()
+
+    // Nulstil rum 3
+    select('#room3-hint').html('what way now?')
 
     // Nulstil rum 5
     select('#room5 #room5-code').removeClass('show')

@@ -98,6 +98,26 @@ button { background: white; }
 /* ---- room 3 ---- */
 #room3 {
     background-size: contain;
+    display:grid;
+    place-items: center;
+}
+/* ---- room 6 ---- */
+#room6 {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+}
+#room6 .right {
+    background-image: url('./assets/plane_in_air.jpg');
+    background-size: contain;
+    background-position: right;
+    image-rendering: crisp-edges;
+}
+#room6 .left {
+    background-image: url('./assets/helicopter.jpg');
+    background-size: contain;
+    background-position: left;
+    image-rendering: crisp-edges;
 }
 
 /* ---- Hotspot-placeringer ---- */
