@@ -5,7 +5,7 @@ var currentPage = '#start'
 var gameState = 0
 var timerInterval = null
 var seconds = 0
-
+var bridgeRun
 
 // Rum 2: antal fundne symboler
 var symbolsFound = 0
@@ -79,10 +79,13 @@ function shiftPage(newPage) {
     currentPage = newPage
 
     if(currentPage=="#room4"){
-        setTimeout(()=>{
-            alert("hej toke")
+        bridgeRun = setTimeout(()=>{
+            alert("CRASH")
         }, 4000)
-    }
+    } else {
+        clearTimeout(bridgeRun);
+            //alert("you made it")
+        }
 }
 
 // ============================================
