@@ -106,17 +106,30 @@ button { background: white; }
     display:grid;
     grid-template-columns: 1fr 1fr;
     place-items: center;
-    position:relative;
+    position:absolute;
+    text-align:center;
+
+    
 }
 #room6 .right {
-    background-image: url('./assets/plane_in_air.jpg');
+    background-image: url('./assets/plane.jpg');
     background-size: contain;
-    background-position: right;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    place-items: center;
+    text-align:center;
 }
 #room6 .left {
     background-image: url('./assets/helicopter.jpg');
     background-size: contain;
-    background-position: left;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    place-items: center;
+    text-align:center;
 
 }
 
