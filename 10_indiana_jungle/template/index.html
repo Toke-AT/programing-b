@@ -80,7 +80,7 @@
 
             <!-- Input (vises når skyerne er klikket rigtigt) -->
             <div id="room5-code" class="code-input">
-                <p>Jeg har byer men ingen huse, skove men ingen træer, vand men ingen fisk. Hvad er jeg?</p>
+                <p>i fly through the sky on many blades, i rescue the lost and save the hurt. what am i?</p>
                 <input type="text" id="room5-answer" placeholder="Skriv svaret her...">
                 <button id="room5-submit">Tjek svar</button>
                 <div id="room5-error" class="error"></div>
@@ -103,6 +103,31 @@
             
 
         </div>
+        <!-- RUM x1: is it a plane?... -->
+        <div class="page" id="roomx1" title="you died(plane)">
+            <div class="overlay">
+                <h1>GAME OVER</h1>
+                <h2>planes dont normally land in the middle of the jungle</h2>
+                <button id="btn-restartx1">Spil igen</button>
+            </div>
+        </div>
+        <!-- RUM x2: london bridge is falling down -->
+        <div class="page" id="roomx2" title="you died(bridge)">
+            <div class="overlay">
+                <h1>GAME OVER</h1>
+                <h2>you should have run faster</h2>
+                <button id="btn-restartx2">Spil igen</button>
+            </div>
+        </div>
+        <!-- RUM x3: dont just jump in! -->
+        <div class="page" id="roomx3" title="you died(aligator)">
+            <div class="overlay">
+                <h1>GAME OVER</h1>
+                <h2>what did you even plan on doing on the other side?</h2>
+                <button id="btn-restartx3">Spil igen</button>
+                <video src="assets/istockphoto-1157762412-640_adpp_is.mp4" autoplay muted loop></video>
+            </div>
+        </div>
 
         <!-- SLUTSIDE -->
         <div class="page" id="complete" title="Færdig">
@@ -113,7 +138,7 @@
                     <input type="text" id="player-name" placeholder="Dit navn">
                     <button id="btn-save">Gem high score</button>
                 </div>
-                <button id="btn-restart">Spil igen</button>
+                <button id="btn-restartw1">Spil igen</button>
             </div>
         </div>
 

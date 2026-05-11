@@ -65,7 +65,16 @@ function setup() {
         saveHighScore()
     })
 
-    select('#btn-restart').mousePressed(() => {
+    select('#btn-restartw1').mousePressed(() => {
+        resetGame()
+    })
+    select('#btn-restartx1').mousePressed(() => {
+        resetGame()
+    })
+    select('#btn-restartx2').mousePressed(() => {
+        resetGame()
+    })
+    select('#btn-restartx3').mousePressed(() => {
         resetGame()
     })
 }
@@ -80,7 +89,8 @@ function shiftPage(newPage) {
 
     if(currentPage=="#room4"){
         bridgeRun = setTimeout(()=>{
-            alert("CRASH")
+            stopTimer()
+            shiftPage('#roomx2')
         }, 4000)
     } else {
         clearTimeout(bridgeRun);
@@ -169,7 +179,8 @@ function riverPath(id){
     select(id).show()
 
     if (id.includes('#swim')) {
-        shiftPage('#roomx')
+        stopTimer()
+        shiftPage('#roomx3')
         console.log('gameover')
     }
 
@@ -225,7 +236,7 @@ function clickCloud(id) {
 
 function checkRoom5Answer() {
     var answer = select('#room5 #room5-answer').value().toLowerCase()
-    if (answer.includes('kort')) {
+    if (answer.includes('helicopter')) {
         gameState = 3
         stopTimer()
         select('#final-time').html('Din tid: ' + seconds + ' sekunder')
@@ -241,12 +252,13 @@ function superman(id){
     select(id).show()
 
     if (id.includes('#plane')) {
-        shiftPage('#roomx')
+        stopTimer()
+        shiftPage('#roomx1')
         console.log('gameover')
     }
 
     if (id.includes('#helicopter')) {
-        shiftPage('#roomw')
+        shiftPage('#complete')
         console.log('win')
     }
 
@@ -258,7 +270,15 @@ function superman(id){
 
 
 // ============================================
-// RUM X: GAMEOVER screen with unike background
+// RUM X1: GAMEOVER screen with unike background
+// ============================================
+
+// ============================================
+// RUM X2: GAMEOVER screen with unike background
+// ============================================
+
+// ============================================
+// RUM X3: GAMEOVER screen with unike background
 // ============================================
 
 //match death to gameover background
@@ -290,10 +310,10 @@ function saveHighScore() {
     console.log('TODO: Åbn firebase.js og indsæt jeres Firebase-config. Derefter virker scoresRef.add() og gemmer data i Firestore.')
 
     // Udkommenter linjen herunder når firebase.js er sat op:
-    // scoresRef.add({ name: name, seconds: seconds }).then(() => {
-    //     select('#btn-save').attribute('disabled', true)
-    //     select('#btn-save').html('Gemt!')
-    // })
+    scoresRef.add({ name: name, seconds: seconds }).then(() => {
+         select('#btn-save').attribute('disabled', true)
+         select('#btn-save').html('Gemt!')
+     })
 }
 
 // ============================================
