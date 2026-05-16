@@ -41,7 +41,7 @@ body {
 /* Hotspot — klikbart element placeret i et rum */
 .hotspot {
     position: absolute;
-    font-size: 2rem;
+    font-size: 3rem;
     cursor: pointer;
     z-index: 5;
 }
