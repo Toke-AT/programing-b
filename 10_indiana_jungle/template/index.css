@@ -51,7 +51,9 @@ body {
 button { 
     background: white;
 }
-
+h1 {
+  color: white;
+}
 /* Code-input — skjult, vises med .show */
 .code-input {
     position: absolute;
@@ -111,6 +113,14 @@ button {
     background-size: contain;
     display:grid;
     place-items: center;
+}
+/* ---- room 4 ---- */
+#room4 {
+    text-align: center;
+}
+#room4 h1 {
+  color: red;
+  
 }
 /* ---- room 6 ---- */
 #room6 {

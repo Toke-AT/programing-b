@@ -95,14 +95,18 @@ function shiftPage(newPage) {
     } else {
         clearTimeout(bridgeRun);
             //alert("you made it")
-        }
+    }
+    if (currentPage=='#complete'){
+        winGame()
+    }
+        
 }
 
 // ============================================
 // TIMER — tæller 1 op hvert sekund
 // ============================================
 function startTimer() {
-    seconds = 0
+    
     timerInterval = setInterval(() => {
         seconds++
         select('#timer').html(seconds + ' sek')
@@ -119,7 +123,8 @@ function stopTimer() {
 function startGame() {
     gameState = 0
     symbolsFound = 0
-    rPressed = 0
+    stopTimer()
+    wPressed = 0
     cloudStep = 0
     shiftPage('#room1')
 }
@@ -204,10 +209,10 @@ function riverPath(id){
 // RUM 4: canyon bridge
 // ============================================
 function keyPressed(){
-    if (key === 'r'){
-        rPressed++
+    if (key === 'w'){
+        wPressed++
     }
-    if (rPressed === 8) {
+    if (wPressed === 8) {
         shiftPage('#room5')
     }
 }
@@ -238,8 +243,6 @@ function checkRoom5Answer() {
     var answer = select('#room5 #room5-answer').value().toLowerCase()
     if (answer.includes('helicopter')) {
         gameState = 3
-        stopTimer()
-        select('#final-time').html('Din tid: ' + seconds + ' sekunder')
         shiftPage('#complete')
     } else {
         select('#room5 #room5-error').html('Ikke helt - prøv igen!')
@@ -267,7 +270,11 @@ function superman(id){
 // ============================================
 // RUM W: Win screen AKA saved by helicopter 
 // ============================================
-
+function winGame(){
+    stopTimer()
+    select('#final-time').html('Din tid: ' + seconds + ' sekunder')
+    console.log('win')
+}
 
 // ============================================
 // RUM X1: GAMEOVER screen with unike background
@@ -320,6 +327,8 @@ function saveHighScore() {
 // RESET
 // ============================================
 function resetGame() {
+    stopTimer()
+    seconds = 0
     select('#timer').html('0 sek')
 
 
