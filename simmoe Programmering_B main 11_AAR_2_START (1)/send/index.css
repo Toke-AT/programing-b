@@ -24,20 +24,40 @@ body,
     transition: all .6s ease-in-out;
 }
 
+#page1{
+    background-color: magenta;
+}
+
+button{
+    background-color: whitesmoke;
+}
+
+#page2{
+    background-color: magenta;
+}
+
+#msg{
+    text-shadow: 4px 4px 12px purple;
+}
+
 .show {
     top: 0;
 }
 
 #toast{
-    width: 10rem;
-    height: 8rem;
-    background-color: purple;
-    position: fixed;
-    top: -12rem;
-    right: 2rem;
-    padding: 2rem;
+    width:20rem;
+    height:8rem;
+    background-color: #f1f1f1;
+    position:fixed;
+    top:-12rem;
+    right:2rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: top 0.5s ease-in-out;
+    z-index:4000;
 }
 
 #toast.toastShow{
-    top: 2rem;
+    top:2rem;
 }
