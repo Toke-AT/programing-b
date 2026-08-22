@@ -4,11 +4,17 @@
 function setup(){
     noCanvas()
     // Brug funktionerne fra dit personlige API her.
-    showToast('SELMA ER FUCKING NICE', 500)
+    showToast('SELMA ER FUCKING NICE', 500, type="notify")
+    console.log('selma')
+
     startTimer()
     setTimeout(()=>{
             stopTimer()
             
         }, 4000)
+    
+
+
+
     
 }
