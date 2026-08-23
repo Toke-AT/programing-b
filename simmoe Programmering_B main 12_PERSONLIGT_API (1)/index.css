@@ -15,9 +15,67 @@ body,
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    /* grid layout */
-    display: grid;
     place-items: center;
     position: fixed;
     left: 0;
+}
+
+#page1{
+    background-color: rgb(73, 58, 58);
+    color: beige;
+}
+
+#page2 {
+    background-color: whitesmoke;
+}
+
+#btn1 {
+    color: beige;
+}
+
+#btn2 {
+    color: beige;
+}
+
+#timerBtn {
+    color: beige;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.elevcss {
+    width: 50px;
+    min-height: 50px;
+    border: 1px solid lightblue;
+    display: grid;
+    place-items: center ;
+    transition: .8s ease-in-out all;
+    background-size: cover;
+}
+
+.randomElevCss {
+    width: 250px;
+    min-height: 50px;
+    font-size: 40px;
+    border: 5px solid lightblue;
+    display: grid;
+    place-items: center ;
+    transition: .8s ease-in-out all;
+    background-size: cover;
+}
+
+/* Timer */
+#timer {
+    position: fixed;
+    place-items: center ;
+    font-size: 8rem;
+    font-weight: 700;
+    border: 5px solid lightblue;
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    z-index: 100;
 }
