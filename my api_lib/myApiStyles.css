@@ -1,0 +1,52 @@
+/* CSS der hører til dit API — fx .show og #toast */
+
+#toast{
+    width:20rem ;
+    height: 8rem;
+    display:  grid;
+    place-items: center;
+    font-size: 1.1rem;
+    color: darkgrey;
+    position: fixed;
+    top: -12rem;
+    right: 2rem;
+    padding:1rem;
+    border-radius: 1rem;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+    transition: top 1s ease-in-out;
+    z-index: 4000;
+}
+
+#toast.toastShow{
+    top:2rem;
+}
+
+#toast.toastShow.notify{
+    background-color: aqua;
+    color:black;
+}
+
+#toast.toastShow.warning{
+    background-color: red;
+    color:black;
+}
+
+.page{
+    display: none;
+}
+
+.page.show{
+    display: grid;
+}
+
+/* Timer */
+#timer {
+    position: fixed;
+    place-items: center ;
+    font-size: 8rem;
+    font-weight: 700;
+    border: 5px solid lightblue;
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    z-index: 100;
+}
