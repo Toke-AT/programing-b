@@ -15,3 +15,6 @@ body {
 .page.show {
     top: 0;
 }
+#choose{
+    background: aquamarine;
+}
