@@ -1,8 +1,10 @@
-var client
+var client 
 var topic = "karaktervalg"
 var me
 
 function setup() {
+        console.log(window.location.href)
+
     // Bind controllerens knapper og send handlinger over MQTT her.
     //init mqtt
     client = mqtt.connect('wss://mqtt.nextservices.dk')
@@ -11,31 +13,40 @@ function setup() {
         client.subscribe(topic)
     })
     client.on('message', (topic, ms) => {
-        showToast(`Modtog besked: ${ms.toString()}`)
+        showToast(`Modtog besked: ${ms.toString()}`)    
         var msObject = JSON.parse(ms.toString())
         console.log(msObject.name)
 
-        if (msObject.action == "choose charecter") {
-            if (select(`#player${msObject.name}`)) {
+        if(msObject.action == "choose character"){
+            if(select(`#player${msObject.name}`)){
                 select(`#player${msObject.name}`).hide()
             }
         }
-    })
+    } )
 
 
     select('#playerA').mousePressed(() => choosePlayer('A'))
     select('#playerB').mousePressed(() => choosePlayer('B'))
+    select('#forward').mousePressed(() => choice('forward'))
 }
 
-function choosePlayer(n) {
+function choosePlayer(n){
     me = n
     var obj = {
-        "name": n,
-        "action": "choose charecter"
+        "name":n,
+        action:"choose character"
     }
-    ojb = JSON.stringify(obj)
+    obj = JSON.stringify(obj)
     client.publish(topic, obj)
     select('#name').html(` I am ${me} ` )
     shiftPage('#choose')
+}
 
+function choice(direction){
+    var obj = {
+        "name":me,
+        action:direction
+    }
+    obj = JSON.stringify(obj)
+    client.publish(topic, obj)
 }

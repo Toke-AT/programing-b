@@ -13,6 +13,28 @@ function showToast(txt, timeout=2000, type='notify'){
         }, timeout)
 }
 
+//Funktion der henter og returnerer JSON fra et API
+async function getJSON( endpoint ){
+    //Vi starter med at kontakte serveren med et request
+    var res 
+    try{
+        res = await fetch( endpoint )
+    }catch(err){
+        console.log(err)
+    }
+    //Hvis response er ok, henter vi json data 
+    var json = await res.json()
+    console.log('Hentede poster fra fetchJSON', json)
+    return json 
+}
+
+function createCard(title = "", text = "", image = ""){
+    var card = createDiv().addClass('card')
+    card.child(createImg(image))
+    card.child(createElement('h2', title))
+    card.child(createElement('p', text))
+    return card
+}
 // Skifter til en ny side uden andre ting
 // Parametre: newId = id på den nye side, der skal vises, fromId = id på den side, der skiftes fra, className = den CSS-class der bruges til at vise siden
 function shiftPage(newId, fromId = currentPage, className = 'show'){
@@ -69,13 +91,7 @@ var client
     client.on('connect', msg => {
         console.log(msg)
         console.log('Forbundet til NEXT MQTT server')
-        toast.html('Forbundet til NEXT MQTT server')
-        toast.addClass('online')
-        toast.addClass('toastShow')
-        setTimeout(()=>{
-            toast.removeClass('online')
-            toast.removeClass('toastShow')
-        }, 2000)
+        showToast('Forbundet til NEXT MQTT server')
     })
 
     client.subscribe('toke')
