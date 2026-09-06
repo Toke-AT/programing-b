@@ -3,11 +3,12 @@ var characters = []
 //mqtt "walkie talkie" kalder vi for client 
 var client 
 //topic er det mqtt emne vi skal bruge
-var topic = "karaktervalg"
+var topic = "coc"
 
 //to globale variable der holder styr på hvilken karakter billede spillrne har valgt
 var playerAIndex = 0 
 var playerBIndex = 0 
+
 
 function setup() {
     // Hent kataloget, lyt på MQTT og opdatér fællesskærmen her.
@@ -19,15 +20,23 @@ function setup() {
         client.subscribe(topic)
     })
     client.on('message', (topic, ms) => {
+        console.log("Ny besked, status er at playerAIndex er " + playerAIndex + " og playerBIndex er " + playerBIndex)
         showToast(`Modtog besked: ${ms.toString()}`)    
         var msObject = JSON.parse(ms.toString())
-        console.log(msObject.name)
         if(msObject.action == "choose character"){
             select(`#player${msObject.name}`).addClass('selected')
         }
         if(msObject.action == "forward"){
-            //hent variablen emd det rigtige index til den her spiller 
+            //hent variablen emd det rigtige index og tæl dem op og læg dem i
             var i = eval(`player${msObject.name}Index++`)
+            //skift billede
+            select(`#player${msObject.name} img`).attribute("src", characters[i].image)
+            select(`#player${msObject.name} h2`).html(characters[i].name)
+        }
+        if(msObject.action == "back"){
+            //hent variablen emd det rigtige index og tæl dem op og læg dem i
+            var i = eval(`player${msObject.name}Index--`)
+            console.log(i)
             //skift billede
             select(`#player${msObject.name} img`).attribute("src", characters[i].image)
             select(`#player${msObject.name} h2`).html(characters[i].name)

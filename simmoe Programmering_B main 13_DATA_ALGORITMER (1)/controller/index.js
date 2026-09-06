@@ -28,6 +28,7 @@ function setup() {
     select('#playerA').mousePressed(() => choosePlayer('A'))
     select('#playerB').mousePressed(() => choosePlayer('B'))
     select('#forward').mousePressed(() => choice('forward'))
+    select('#back').mousePressed(() => choice('back'))
 }
 
 function choosePlayer(n){
