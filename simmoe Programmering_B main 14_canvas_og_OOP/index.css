@@ -21,6 +21,12 @@ canvas {
     overflow: hidden;
     position: fixed;
     left: 0;
+    display: grid;
+    place-items: center;
+}
+
+#show{
+    left: 0;
 }
 
 #info{

@@ -1,58 +1,48 @@
-var x = 20
-var speed = 10
-var r = 40
+var gravity 
+var friction  
+var b
+var f
+var points = 1000
+var bSound
 
-var gravity =1
-var hor_x
-var hor_speed =5
-var hor_r =20
-var hor_y =0
-var hor_velo = .9
-var friction = .99
 
-//P5 setup() bliver kaldt EN gang før siden vises 
-function setup(){
-    var canvas = createCanvas(windowWidth, windowHeight)
-    canvas.parent('page1')
 
-    hor_x = windowWidth /2
-    
+
+async function setup() {
+  bSound = await loadSound("api_lib/sounds/u_edtmwfwu7c-metal-pipe-329305.mp3")
+  var c = createCanvas(windowWidth, windowHeight)
+  select('page2').child(c)
+  gravity = createVector(0, 0.5)
+  friction = 0.99
+
+  select('#info').html(points)
+
+  b = new Ball(windowWidth/2, 0, 100, "orange", 12)
+  f = new FloatingBall(100, 0, 50, "lightblue", 0, 4)
 }
-
 
 function draw() {
-    background(220, 100, 50)
-    frameRate(60)
+  background(100)
 
-    //hanlde ball 1
-    fill('lightblue')
-    circle(x, 100, r)
+  b.update()
+  b.constrain()
+  b.show()
+  b.hit(f)
 
-    x = x + 1
+  if(b.hit(f)){
+    points--
+    bSound.play()
+  }
 
-    if(x > windowWidth - r/2 || x < 0 + r/2) {
-        speed = -speed
-    }
-
-    //handle ball 2
-    fill(100, 80, 220)
-    noStroke()
-    //fall to ground
-    hor_velo += gravity
-    hor_y += hor_velo
-    hor_velo *= friction
-    circle(hor_x, hor_y, hor_r)
-
-    if(hor_y >= windowHeight - hor_r/2){
-        hor_y = windowHeight - hor_r/2
-        hor_velo = -hor_velo
-    }
-
-    select('#info').html(`Velocity: ${round(hor_velo, 2)}`)
+  f.update()
+  f.constrain()
+  f.show()
 }
+
 function keyPressed(){
-    console.log("jump")
-    if(key == " "){
-        hor_velo += -10
-    }
+  if(key == " "){
+    b.jump()
+    f.jump()
+  }
 }
+
