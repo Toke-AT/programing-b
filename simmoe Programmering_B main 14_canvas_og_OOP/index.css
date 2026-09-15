@@ -20,24 +20,55 @@ canvas {
     height: 100vh;
     overflow: hidden;
     position: fixed;
-    left: 0;
-    display: grid;
+    left: -100vw;
+    display:grid;
     place-items: center;
+    transition: 1s ease-in-out;
+    background-size: cover;
+}
+.show{
+    left:0;
 }
 
-#show{
-    left: 0;
+#page1{
+    background-image: url(./assets/blomkaal.png);
+}
+#page2{
+    background-image: url(./assets/cabbage.jpeg);
+}
+
+#page3{
+    background-image: url(./assets/roedkaal.png);
+}
+
+#stats h1 {
+    color: whitesmoke;
+    text-shadow: 4px 4px 8px black;
+}
+
+#startButton, #restartButton{
+    width:20vw;
+    height:20vw;
+    border:none;
+    background-size: cover;
+    background-image: url(./assets/blomkaal.png);
+    filter: drop-shadow(4px 4px 20px orangered);
+    transition:.5s ease-in-out;
+}
+#startButton:hover, #restartButton:hover{
+    transform:scale(1.2);
 }
 
 #info{
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    background-color: whitesmoke;
-    height: 10rem;
-    width: 10rem;
+    position:absolute;
+    bottom:2rem;
+    right:2rem;
+    background-color:whitesmoke;
+    height:10rem;
+    width:10rem;
     border-radius: 1rem;
-    display: grid;
+    display:grid;
     place-items: center;
-    z-index: 2;
+    z-index:2;
+    font-size: 3rem;
 }

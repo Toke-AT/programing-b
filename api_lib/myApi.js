@@ -35,12 +35,12 @@ function createCard(title = "", text = "", image = ""){
     card.child(createElement('p', text))
     return card
 }
-// Skifter til en ny side uden andre ting
-// Parametre: newId = id på den nye side, der skal vises, fromId = id på den side, der skiftes fra, className = den CSS-class der bruges til at vise siden
-function shiftPage(newId, fromId = currentPage, className = 'show'){
-    select(fromId).removeClass(className)
-    select(newId).addClass(className)
-    currentPage = newId
+//Kaldes med newPageId - og toggler klassen show på den side som har det nye id 
+var currentPage
+function shiftPage(newPageId){
+    if(select(currentPage)) select(currentPage).removeClass('show')
+    select(newPageId).addClass('show')
+    currentPage = newPageId
 }
 
 // Returnerer et tilfældigt element fra et array.
@@ -61,21 +61,33 @@ function createList(list, containerId, className){
     })
 }
 
-// timer API
-var timerInterval = null
+//from, to: start og slut i sekunder — fx 1, 14 tæller op, 14, 1 tæller ned
+//corner: top-left, top-right, bottom-left eller bottom-right
+//callback: kaldes når timeren rammer to
+//bg: valgfrit baggrundsbillede bag tiden
+function startTimer(from, to, corner = 'top-right', callback, bg) {
+    selectAll('.timer').map(el => el.remove())
+    var timer = createDiv(from)
+    timer.addClass('timer')
+    timer.addClass(corner)
+    if (bg) timer.style('background-image', 'url(' + bg + ')')
 
-//parametre: seconds = så mange sekunder timeren skal tælle ned, displayId=id på den container, hvor sekunderne vises 
-function startTimer(seconds, displayId) {
-    var currentSeconds = seconds // Den aktuelle tid sættes til de indtastede sekunder
-    select('#' + displayId).html(currentSeconds + ' sek') //display skal vise den indstillet tid + sekunder
-    timerInterval = setInterval(() => {
-        currentSeconds-- //der skal tælles 1 ned hvert sekund fra de indtastede sekunder
-        select('#' + displayId).html(currentSeconds + ' sek') //nedtælling skal vises
-        if(currentSeconds <= 0){
-            stopTimer() //timer skal stoppe når den rammer 0
+    // Skal vi tælle op eller ned?
+    var step = from < to ? 1 : -1
+    var now = from
+
+    var tick = setInterval(() => {
+        now += step
+        timer.html(now)
+
+        // Er vi i mål?
+        if (now === to) {
+            clearInterval(tick)
+            callback(now)
         }
-    }, 1000) //timeren skal opdateres hvert sekund
-    console.log('timer started')
+    }, 1000)
+
+    return timer
 }
 
 function stopTimer() {

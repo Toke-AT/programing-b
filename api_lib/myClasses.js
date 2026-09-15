@@ -1,9 +1,10 @@
 class Ball {
-  constructor(x, y, r, col){
+  constructor(x, y, r, img, jump){ 
     this.diam = r
-    this.col = col
+    this.img = img
     this.velocity = createVector(0, 0)
     this.position = createVector(x, y)
+    this.jumpForce = jump
   }
   update(){
     this.velocity.add(gravity)
@@ -13,47 +14,48 @@ class Ball {
   constrain(){
     if(this.position.y > height - this.diam/2){
       this.position.y = height - this.diam/2
-      this.velocity.y *= -1 
+      this.velocity.y *= -1
     }
   }
   jump(){
-     this.velocity.y -= jumpForce
+    this.velocity.y -= this.jumpForce
   }
+  
   show(){
-    fill(this.col)
-    circle(this.position.x, this.position.y, this.diam)
+    imageMode(CENTER)
+    image(this.img, this.position.x, this.position.y, this.diam, this.diam)
   }
   hit(anotherBall){
     var b = anotherBall
-    var totalR = (this.diam + b.diam) /2
+    var totalR = (this.diam + b.diam) / 2
     var d = dist(this.position.x, this.position.y, b.position.x, b.position.y)
 
     if(d <= totalR){
-        console.log("balls hit")
         return true
-    }
-    else{
+    }else{
         return false
     }
   }
 }
 
 class FloatingBall extends Ball{
-    constructor(x, y, r, col, jump, speed){
-        //super means we inharit these from parent/superclass
-        super(x, y, r, col, jump)
-        //we overide OG class parent
-        this.velocity = createVector(speed, 8)
-
+    constructor(x, y, r, img, jump, speed){
+        //super betyder at vi overtager disse argumenter fra "super" klassen (Ball)
+        super(x, y, r, img, jump)
+        //vi overskriver velocity vektoren med en lokal der flytter sig på x aksen 
+        this.velocity = createVector(speed, 0)
     }
     update(){
         this.position.add(this.velocity)
     }
+
     constrain(){
-        //make floatball bounce
-        this.position.x = constrain(this.position.x, this.position.diam/2, windowWidth - this.diam/2 )
+        //sørg for at floatingball bouncer på siderne
+        this.position.x = constrain(this.position.x, this.diam/2, windowWidth - this.diam/2) 
+
         if(this.position.x <= this.diam/2 || this.position.x >= windowWidth - this.diam/2){
-            this.velocity.multi(-1)
+            this.velocity.mult(-1)
         }
     }
+
 }
