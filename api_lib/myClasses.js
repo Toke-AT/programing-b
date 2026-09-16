@@ -59,3 +59,25 @@ class FloatingBall extends Ball{
     }
 
 }
+
+class Firebase {
+  constructor(collection) {
+    this.ref = db.collection(collection)
+  }
+
+  save(name, points, limit, sort) {
+    this.ref.add({
+      name: name,
+      points: points,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp()
+    })
+  }
+
+  listen(onUpdate, limit, sort, dir='desc') {
+    this.ref.orderBy(sort, dir).limit(limit).onSnapshot(snap => {
+      var list = []
+      snap.forEach(doc => list.push(doc.data()))
+      onUpdate(list)
+    })
+  }
+}

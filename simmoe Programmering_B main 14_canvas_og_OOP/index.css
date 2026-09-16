@@ -11,6 +11,13 @@ body,
 
 }
 
+main{
+    background-image: url(./assets/cabbage.jpeg);
+    background-size:cover;
+    width:100vw;
+    height:100vh;
+}
+
 canvas {
     display: block;
 }
@@ -32,9 +39,6 @@ canvas {
 
 #page1{
     background-image: url(./assets/blomkaal.png);
-}
-#page2{
-    background-image: url(./assets/cabbage.jpeg);
 }
 
 #page3{
@@ -71,4 +75,11 @@ canvas {
     place-items: center;
     z-index:2;
     font-size: 3rem;
+}
+.scores{
+    display:grid;
+    place-items: center;
+    width:40vw;
+    padding:4rem;
+    background:whitesmoke;
 }

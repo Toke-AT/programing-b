@@ -24,6 +24,11 @@ async function setup() {
     startGame()
     shiftPage('#page2')
   })
+    select('#saveHighscore').mousePressed(()=> {
+    var n = select('#name').value()
+    console.log(n, points)
+    fb.save(n, points)
+  })
   
   gravity = createVector(0, 0.5)
   friction = 0.99
@@ -33,6 +38,26 @@ async function setup() {
   b = new Ball(windowWidth/2, 0, 160, blomkaal, 12)
   f = new FloatingBall(100, 100, 110, roedkaal, 0, 12)
   frameRate(0)
+
+  var fb = new Firebase('jumping_cabbage_data')
+  fb.listen(updateHighscore, 5, 'points', 'asc')
+}
+
+//callback fra listen som har returneret et array
+function updateHighscore(scores){
+  console.log('got results')
+}
+
+function updateHighscore(scores){
+  console.log('Got result', scores)
+  var HS = select('#highScore')
+  HS.html('')
+  scores.map(p => {
+    HS.child(
+      createElement('p', `${p.name}: ${p.points}`)
+    )
+  })
+  select('#name').value('')
 }
 
 function startGame(){
@@ -67,7 +92,6 @@ function draw() {
 function keyPressed(){
   if(key == " "){
     b.jump()
-    f.jump()
   }
 }
 
