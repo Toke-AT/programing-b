@@ -79,3 +79,12 @@ canvas {
     font-weight: bolder;
     font-size: x-large;
 }
+
+.scores{
+    display:grid;
+    place-items: center;
+    width:40vw;
+    padding:4rem;
+    background:rgb(55, 2, 70);
+    border-radius: 1rem;
+}

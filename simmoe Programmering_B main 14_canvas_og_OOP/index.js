@@ -45,10 +45,6 @@ async function setup() {
 
 //callback fra listen som har returneret et array
 function updateHighscore(scores){
-  console.log('got results')
-}
-
-function updateHighscore(scores){
   console.log('Got result', scores)
   var HS = select('#highScore')
   HS.html('')

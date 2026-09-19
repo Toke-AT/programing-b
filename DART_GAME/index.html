@@ -31,13 +31,23 @@
         </div>
 
         <div id="page3" class="page">
-            <h1>Game Over</h1>
+            <h1>Game over</h1>
             <div id="stats"></div>
-            <button id="restartButton"> Try again</button>
+            <div class="scores">
+                <h2>High scores</h2>
+                <div id="highScore">
+                </div>
+                <input type="text" id="name">
+                <button id="saveHighscore">Gem Highscore</button>
+            </div>
+            <button id="restartButton">Try again</button>
         </div>
     </main>
+    <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore-compat.js"></script>
+    <script src="../api_lib/firebase.js"></script>
     <script src="../api_lib/myApi.js"></script>
-    <script src="../api_lib/myClasses.js"></script>
+<//script src="../api_lib/myClasses.js"></script>
     <script src="./index.js"></script>
 </body>
 

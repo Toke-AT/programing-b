@@ -9,13 +9,23 @@ var currentPage='#page1'
 async function setup() {
 
 
-  bSound = await loadSound("../api_lib/sounds/dragon-studio-censor-beep-3-372460.mp3")
+  //bSound = await loadSound("../api_lib/sounds/dragon-studio-censor-beep-3-372460.mp3")
   var c = createCanvas(windowWidth, windowHeight)
   select('#page2').child(c)
   select('#startButton').mousePressed(()=> {
-    userStartAudio() //starter lyd eller blokerer browseren for funktionaliteter. kunne fx ikke restarte uden//
+    //userStartAudio() //starter lyd eller blokerer browseren for funktionaliteter. kunne fx ikke restarte uden//
     shiftPage('#page2')
   })
+  select('#restartButton').mousePressed(()=>{    
+  
+    shiftPage('#page2')
+  })
+    select('#saveHighscore').mousePressed(()=> {
+    var n = select('#name').value()
+    console.log(n, points)
+    fb.save(n, points)
+  })
+
   // Getting 'Info' div in js hands
 var info = document.getElementById('info');
 
@@ -35,6 +45,22 @@ addEventListener('mousemove', tellPos, false)
   f = new FloatingBall(100, 100, 50, '#8b5e3c',0,4)
  
  select('#restartButton').mousePressed(()=> shiftPage('#page1'))
+
+ var fb = new Firebase('dart_game_data')
+  fb.listen(updateHighscore, 5, 'points', 'asc')
+}
+
+//callback fra listen som har returneret et array
+function updateHighscore(scores){
+  console.log('Got result', scores)
+  var HS = select('#highScore')
+  HS.html('')
+  scores.map(p => {
+    HS.child(
+      createElement('p', `${p.name}: ${p.points}`)
+    )
+  })
+  select('#name').value('')
 }
 
 function draw() {
@@ -45,7 +71,7 @@ function draw() {
 
   if(b.hit(f)){
     points --
-    bSound.play()
+    //bSound.play()
     CheckPoints()
   }
 
@@ -64,13 +90,10 @@ function CheckPoints(){
 
 }
 
-function restartGame(){
-
-
-}
 
 function keyPressed(){
   if(key == " "){
+    console.log('try jump')
     b.jump()
     f.jump()
     gravity = createVector(0, 0.5)
@@ -88,7 +111,7 @@ class Ball {
   }
   update(){
     this.velocity.add(gravity)
-    this.velocity.y = friction 
+    this.velocity.y *= friction 
     this.position.add(this.velocity)
 
   }
@@ -96,7 +119,7 @@ class Ball {
 
     if(this.position.y > height - this.diam/2){
       this.position.y =  height - this.diam/2
-      this.velocity.y= -1 
+      this.velocity.y *= -1 
 
 
     }
@@ -143,4 +166,26 @@ class FloatingBall extends Ball{
             this.velocity.x *= -1
         }
     }
+}
+
+class Firebase {
+  constructor(collection) {
+    this.ref = db.collection(collection)
+  }
+
+  save(name, points, limit, sort) {
+    this.ref.add({
+      name: name,
+      points: points,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp()
+    })
+  }
+
+  listen(onUpdate, limit, sort, dir='desc') {
+    this.ref.orderBy(sort, dir).limit(limit).onSnapshot(snap => {
+      var list = []
+      snap.forEach(doc => list.push(doc.data()))
+      onUpdate(list)
+    })
+  }
 }
