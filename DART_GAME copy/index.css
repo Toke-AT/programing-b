@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Momo+Trust+Display&display=swap');
+
+
+body,
+* {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+canvas {
+    display: block;
+}
+
+.page {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: fixed;
+    left: -100lvw;
+    display: grid;
+    place-items: center;
+}
+
+.show{
+    left: 0;
+}
+
+#info{
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: #6F4A5E;
+    color: #F5EBDD;
+    height: 10rem;
+    width: 10rem;
+    border-radius: 1rem;
+    display: grid;
+    place-items: center;
+    z-index: 2;
+    font-size: 3rem;
+}
+
+
+#startButton {
+   border-radius: 1rem;
+   border-color: #F5EBDD; 
+   border-width: 3px;
+   color: #F5EBDD;
+   font-weight: bold;
+   display: inline-flex;     /*s책 browseren forst책r vores kommandoer til tekstens placering */
+   align-items: center;      /* Centrerer tekst lodret */
+   justify-content: center;  /* Centrerer tekst vandret */
+}
+
+#restartButton{
+   border-radius: 1rem;
+   border-color: #F5EBDD; 
+   border-width: 3px;
+   color: #F5EBDD;
+   font-weight: bold;
+   display: inline-flex;     /*s책 browseren forst책r vores kommandoer til tekstens placering */
+   align-items: center;      /* Centrerer tekst lodret */
+   justify-content: center;  /* Centrerer tekst vandret */
+}
+
+#page1{
+    background-color: #6F4A5E;
+    color: #F5EBDD;
+    font-weight: bolder;
+    font-size: x-large;
+}
+
+#page3{
+    background-color: #6F4A5E;
+    color: #F5EBDD;
+    font-weight: bolder;
+    font-size: x-large;
+}
+.scores{
+    display:grid;
+    place-items: center;
+    width:40vw;
+    padding:4rem;
+    background:rgb(55, 2, 70);
+    border-radius: 1rem;
+}
